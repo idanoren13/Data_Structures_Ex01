@@ -1,0 +1,13 @@
+TODO:
+	- (1) implement stucture of state class
+	- (1) implement list of accessibles class
+	- (2) write the recursive algorithm by the given instcutions(I'm talking to you Idan!!).
+	- implement Stack
+Raz:
+	- implement list of accessibles class
+Idan:
+	- implement stucture of state class
+
+Status:
+	(1) deadline 27/03 23:59
+	(2) deadline 28/03 22:30 -> zoom meeting
