@@ -11,3 +11,7 @@ Idan:
 Status:
 	(1) deadline 27/03 23:59
 	(2) deadline 28/03 22:30 -> zoom meeting
+
+
+
+	Q: we can assume max numbers of citys? - for the linkedList
