@@ -139,10 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ItemType.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="StructureOfState.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ItemType.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="StructureOfState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
