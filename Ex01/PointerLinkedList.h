@@ -16,6 +16,8 @@ public:
 	Node* Head = nullptr;
 	Node* Tail = nullptr;
 	void insertToTail(int data);
-
+	/*
+	*	TODO: add iterator, add get iterator data
+	*/
 };
 

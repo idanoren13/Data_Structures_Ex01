@@ -145,6 +145,7 @@
     <ClInclude Include="StuctureOfState.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GoToTownRec.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PointerLinkedList.cpp" />
