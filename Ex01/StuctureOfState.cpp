@@ -9,11 +9,15 @@ void StuctureOfState::initStructure(int numberOfCities, int numberOfRoads, strin
 	{
 		ss >> start;
 		ss >> destination;
-		if (start > numberOfCities || destination > numberOfCities)
+		if (start > numberOfCities || start > 0 || destination > numberOfCities || destination > 0)
 		{
-			throw "wrong input";
+			throw "invalid input";
 		}
 		arrayOfCities[start-1].insertToTail(destination-1); 
-		//can we insert multiply roads from each city?
+	}
+
+	for (int i = 0; i < numberOfCities; i++)	//initate the iterators
+	{
+		arrayOfCities[i].beginIterator();
 	}
 }

@@ -27,19 +27,23 @@ public:
 		Iterator(Node* _iter = nullptr)
 			: iter(_iter) {}
 
-		Iterator operator++()
+		void advanceIterator()
 		{
 			if (iter != nullptr) {
 				iter = iter->next;
-				return *this;
 			}
 			else {
 				throw "ERROR: The linked list iterator is null";
 			}
 		}
+		friend inline bool operator!=(const Iterator& a, const Iterator& b)
+		{
+			return a.iter != b.iter;
+		}
 
 		int getData() { return iter->data; }
 	};
-	Iterator Begin() { return Head; }
+	Iterator iter;
+	void beginIterator() { iter.iter = Head; }
 };
 

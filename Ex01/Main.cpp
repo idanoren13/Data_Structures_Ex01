@@ -3,13 +3,13 @@
 #include <iostream>
 using namespace std;
 
-#define WHITE 0
-#define BLACK 1
+#define WHITE true
+#define BLACK false
 
 LinkedList createAccessibleGroup(int sizeOfState);
 bool* creatColorArray(int arraySize);
 void initArrayTo0(bool* array, int size);
-
+void goToTwonRec(const StuctureOfState& state, int city, bool* colorArray, LinkedList& accessibleGroup);
 
 void main()
 {
@@ -21,34 +21,20 @@ void main()
 	LinkedList accessibleGroup(5);                             // accessible group
 	bool* colorArray = creatColorArray(5);                    // color array
 
-	accessibleGroup = goToTwonRec(state, country, colorArray, accessibleGroup);
+	goToTwonRec(state, country - 1 , colorArray, accessibleGroup);
 }
 
-LinkedList goToTwonRec(StuctureOfState state, int country, bool* colorArray, LinkedList accessibleGroup)
+void goToTwonRec(const StuctureOfState& state, int city, bool* colorArray, LinkedList& accessibleGroup)
 {
-	colorArray[country - 1] = BLACK;
-	accessibleGroup.Insert(country - 1);  //insert country index
-	for (size_t i = 0; i < length; i++)
+	colorArray[city] = BLACK;
+	accessibleGroup.Insert(city);  //insert country index
+	
+	for (state.arrayOfCities[city].iter; state.arrayOfCities[city].iter != nullptr ; state.arrayOfCities[city].iter.advanceIterator())
 	{
-
+		if (colorArray[state.arrayOfCities[city].iter.getData()] == WHITE) {
+			goToTwonRec(state, state.arrayOfCities[city].iter.getData(), colorArray, accessibleGroup);
+		}
 	}
-	/* 
-	 
-	* for (curr = state.arrayOfCities[country-1].getHead(); curr !=nullptr and white; curr=curr.next)
-	* {
-	*	goTOTOwn(state,curr.getdata,coloarArray,acessibleGroup);
-	* }
-	*	while (state.arrayOfCities[country-1].getNext()!=null && colorArray[???] == WHITE)
-	* {
-	*     goToTwonRec(StuctureOfState state, int **neighbor**, bool* colorArray, LinkedList accessibleGroup)
-	* }                                       
-	
-	TODO:
-	 how to promote to next neighbor?**  state.arrayOfCities[country-1].getNext().data?
-
-	*/
-	
-	return accessibleGroup;
 }
 
 bool* creatColorArray(int arraySize)
@@ -66,3 +52,23 @@ void initArrayTo0(bool* array, int size)
 		array[i] = WHITE;
 	}
 }
+
+
+/*
+
+void goToTwonRec(const StuctureOfState& state, int city, bool* colorArray, LinkedList& accessibleGroup)
+{
+	//START method
+	colorArray[city] = BLACK;
+	accessibleGroup.Insert(city);  //insert country index
+
+	for (state.arrayOfCities[city].iter; state.arrayOfCities[city].iter != nullptr ; state.arrayOfCities[city].iter.advanceIterator())
+	{	//NOT FINISHED FOR LOOP
+		if (colorArray[state.arrayOfCities[city].iter.getData()] == WHITE) {
+			goToTwonRec(state, state.arrayOfCities[city].iter.getData(), colorArray, accessibleGroup);
+		}
+	}
+	//FINISHED LOOP
+}
+
+*/
