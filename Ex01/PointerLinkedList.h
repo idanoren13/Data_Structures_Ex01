@@ -19,5 +19,27 @@ public:
 	/*
 	*	TODO: add iterator, add get iterator data
 	*/
+	class Iterator 
+	{
+		Node* iter;
+		friend class PointerLinkedList;
+	public:
+		Iterator(Node* _iter = nullptr)
+			: iter(_iter) {}
+
+		Iterator operator++()
+		{
+			if (iter != nullptr) {
+				iter = iter->next;
+				return *this;
+			}
+			else {
+				throw "ERROR: The linked list iterator is null";
+			}
+		}
+
+		int getData() { return iter->data; }
+	};
+	Iterator Begin() { return Head; }
 };
 

@@ -28,7 +28,10 @@ LinkedList goToTwonRec(StuctureOfState state, int country, bool* colorArray, Lin
 {
 	colorArray[country - 1] = BLACK;
 	accessibleGroup.Insert(country - 1);  //insert country index
+	for (size_t i = 0; i < length; i++)
+	{
 
+	}
 	/* 
 	 
 	* for (curr = state.arrayOfCities[country-1].getHead(); curr !=nullptr and white; curr=curr.next)
