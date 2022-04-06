@@ -5,6 +5,10 @@ void StuctureOfState::initStructure(int numberOfCities, int numberOfRoads, strin
 	int start, destination;
 	arrayOfCities = new PointerLinkedList[numberOfCities];
 	stringstream ss(roadsStr);
+	for (int i = 0; i < numberOfCities; i++)
+	{
+		arrayOfCities[i].insertToTail(i);
+	}
 	for (int i = 0; i < numberOfRoads; i++)
 	{
 		ss >> start;

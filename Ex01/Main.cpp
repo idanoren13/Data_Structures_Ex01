@@ -19,7 +19,7 @@ void main()
 
 	StuctureOfState state;
 	state.initStructure(5, 5, "1 4 3 2 3 5 2 4 4 5");           //**********get from user
-	int country = 1;                                            //**********get from user
+	int country = 3;                                            //**********get from user
 
 	LinkedList accessibleGroup(5);                             // accessible group
 	bool* colorArray = creatColorArray(5);                    // color array
@@ -59,32 +59,14 @@ void initArrayTo0(bool* array, int size)
 }
 
 
-/*
 
-void goToTwonRec(const StuctureOfState& state, int city, bool* colorArray, LinkedList& accessibleGroup)
-{
-	//START method
-	colorArray[city] = BLACK;
-	accessibleGroup.Insert(city);  //insert country index
-
-	for (state.arrayOfCities[city].iter; state.arrayOfCities[city].iter != nullptr ; state.arrayOfCities[city].iter.advanceIterator())
-	{	//NOT FINISHED FOR LOOP
-		if (colorArray[state.arrayOfCities[city].iter.getData()] == WHITE) {
-			goToTwonRec(state, state.arrayOfCities[city].iter.getData(), colorArray, accessibleGroup);
-		}
-	}
-	//FINISHED LOOP
-}
-
-*/
-
-void goToTwonIter(const StuctureOfState& state, int city, bool* colorArray, LinkedList& accessibleGroup)
+void goToTwonIter(const StuctureOfState& state, int firstCity, bool* colorArray, LinkedList& accessibleGroup)
 {
 	Stack s;
 	type curr;
 	bool returnFromRec = false;
 	 
-	curr = { city, START };
+	curr = { firstCity, START };
 
 	do
 	{
@@ -95,12 +77,12 @@ void goToTwonIter(const StuctureOfState& state, int city, bool* colorArray, Link
 		{
 			colorArray[curr.city] = BLACK;
 			accessibleGroup.Insert(curr.city);
+			state.arrayOfCities[curr.city].iter.advanceIterator();
 
 			if (state.arrayOfCities[curr.city].iter != nullptr)
 			{
 				if (colorArray[state.arrayOfCities[curr.city].iter.getData()] == WHITE)
 				{
-					state.arrayOfCities[curr.city].iter.advanceIterator();
 					curr = { state.arrayOfCities[curr.city].iter.getData(), START };
 					s.push(curr);
 					returnFromRec = true;
