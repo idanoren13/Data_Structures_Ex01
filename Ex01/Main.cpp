@@ -67,7 +67,7 @@ void goToTwonIter(const StuctureOfState& state, int firstCity, bool* colorArray,
 	bool returnFromRec = false;
 	 
 	curr = { firstCity, IS_WHITE };
-
+	s.push({ firstCity, IS_BLACK });
 	do
 	{
 		if (returnFromRec == true)
