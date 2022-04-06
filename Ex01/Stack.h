@@ -3,9 +3,7 @@
 enum Line { START, AFTER_FIRST, AFTER_SECOND, AFTER_THIRD };
 
 struct type {
-	int data;
-	int arr_size;
-	int y;
+	int city;
 	Line line;
 
 };

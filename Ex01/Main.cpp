@@ -1,6 +1,7 @@
 #include "LinkedList.h"
 #include "StuctureOfState.h"
 #include <iostream>
+#include "Stack.h"
 using namespace std;
 
 #define WHITE true
@@ -10,6 +11,8 @@ LinkedList createAccessibleGroup(int sizeOfState);
 bool* creatColorArray(int arraySize);
 void initArrayTo0(bool* array, int size);
 void goToTwonRec(const StuctureOfState& state, int city, bool* colorArray, LinkedList& accessibleGroup);
+void goToTwonIter(const StuctureOfState& state, int city, bool* colorArray, LinkedList& accessibleGroup);
+
 
 void main()
 {
@@ -21,7 +24,9 @@ void main()
 	LinkedList accessibleGroup(5);                             // accessible group
 	bool* colorArray = creatColorArray(5);                    // color array
 
-	goToTwonRec(state, country - 1 , colorArray, accessibleGroup);
+	//goToTwonRec(state, country - 1 , colorArray, accessibleGroup);
+	goToTwonIter(state, country - 1, colorArray, accessibleGroup);
+
 }
 
 void goToTwonRec(const StuctureOfState& state, int city, bool* colorArray, LinkedList& accessibleGroup)
@@ -72,3 +77,40 @@ void goToTwonRec(const StuctureOfState& state, int city, bool* colorArray, Linke
 }
 
 */
+
+void goToTwonIter(const StuctureOfState& state, int city, bool* colorArray, LinkedList& accessibleGroup)
+{
+	Stack s;
+	type curr;
+	bool returnFromRec = false;
+	 
+	curr = { city, START };
+
+	do
+	{
+		if (returnFromRec == true)
+			curr = s.pop();
+
+		if (curr.line == START)
+		{
+			colorArray[curr.city] = BLACK;
+			accessibleGroup.Insert(curr.city);
+
+			if (state.arrayOfCities[curr.city].iter != nullptr)
+			{
+				if (colorArray[state.arrayOfCities[curr.city].iter.getData()] == WHITE)
+				{
+					state.arrayOfCities[curr.city].iter.advanceIterator();
+					curr = { state.arrayOfCities[curr.city].iter.getData(), START };
+					s.push(curr);
+					returnFromRec = true;
+				}
+			}
+			else
+			{
+				returnFromRec = false;
+			}
+		}
+		
+	} while (s.isEmpty() == false);
+}

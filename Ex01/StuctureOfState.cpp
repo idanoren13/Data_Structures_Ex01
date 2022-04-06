@@ -9,7 +9,7 @@ void StuctureOfState::initStructure(int numberOfCities, int numberOfRoads, strin
 	{
 		ss >> start;
 		ss >> destination;
-		if (start > numberOfCities || start > 0 || destination > numberOfCities || destination > 0)
+		if (start > numberOfCities || start <= 0 || destination > numberOfCities || destination <= 0)
 		{
 			throw "invalid input";
 		}
