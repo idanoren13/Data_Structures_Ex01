@@ -1,10 +1,10 @@
 #pragma once
 
-enum Line { START, AFTER_FIRST, AFTER_SECOND, AFTER_THIRD };
+enum Line { IS_WHITE, IS_BLACK, AFTER_SECOND, AFTER_THIRD };
 
 struct type {
 	int city;
-	Line line;
+	Line colorLabel;
 
 };
 class Stack

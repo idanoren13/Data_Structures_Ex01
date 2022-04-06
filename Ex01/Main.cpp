@@ -18,15 +18,15 @@ void main()
 {
 
 	StuctureOfState state;
-	state.initStructure(5, 5, "1 4 3 2 3 5 2 4 4 5");           //**********get from user
-	int country = 3;                                            //**********get from user
+	state.initStructure(10, 16, "10 1 3 5 1 2 6 4 7 6 10 3 6 4 9 6 4 7 4 2 2 10 3 7 2 5 9 4 2 4 10 3");           //**********get from user
+	int country = 2;                                            //**********get from user
 
-	LinkedList accessibleGroup(5);                             // accessible group
-	bool* colorArray = creatColorArray(5);                    // color array
+	LinkedList accessibleGroup(10);                             // accessible group
+	bool* colorArray = creatColorArray(10);                    // color array
 
 	//goToTwonRec(state, country - 1 , colorArray, accessibleGroup);
 	goToTwonIter(state, country - 1, colorArray, accessibleGroup);
-
+	accessibleGroup.PrintList();
 }
 
 void goToTwonRec(const StuctureOfState& state, int city, bool* colorArray, LinkedList& accessibleGroup)
@@ -66,33 +66,38 @@ void goToTwonIter(const StuctureOfState& state, int firstCity, bool* colorArray,
 	type curr;
 	bool returnFromRec = false;
 	 
-	curr = { firstCity, START };
+	curr = { firstCity, IS_WHITE };
 
 	do
 	{
 		if (returnFromRec == true)
 			curr = s.pop();
 
-		if (curr.line == START)
+		if (curr.colorLabel == IS_WHITE)
 		{
 			colorArray[curr.city] = BLACK;
 			accessibleGroup.Insert(curr.city);
 			state.arrayOfCities[curr.city].iter.advanceIterator();
+		}
 
-			if (state.arrayOfCities[curr.city].iter != nullptr)
+		if (state.arrayOfCities[curr.city].iter != nullptr)
+		{
+			if (colorArray[state.arrayOfCities[curr.city].iter.getData()] == WHITE)
 			{
-				if (colorArray[state.arrayOfCities[curr.city].iter.getData()] == WHITE)
-				{
-					curr = { state.arrayOfCities[curr.city].iter.getData(), START };
-					s.push(curr);
-					returnFromRec = true;
-				}
+				curr.colorLabel = IS_BLACK;
+				s.push(curr);
+				curr = { state.arrayOfCities[curr.city].iter.getData(), IS_WHITE };
 			}
 			else
 			{
-				returnFromRec = false;
+				state.arrayOfCities[curr.city].iter.advanceIterator();
+				curr.colorLabel = IS_BLACK;
 			}
+			returnFromRec = false;
 		}
-		
+		else
+		{
+			returnFromRec = true;
+		}
 	} while (s.isEmpty() == false);
 }
