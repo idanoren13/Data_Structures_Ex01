@@ -20,13 +20,5 @@ public:
 	void PrintList();
 
 
-	/*TODO:
-	* 1. insert: to begining, to end, after specific node
-
-
-
-
-
-
-	*/
+	
 };

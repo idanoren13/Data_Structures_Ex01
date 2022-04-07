@@ -139,12 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ColorArray.h" />
+    <ClInclude Include="GoToTownIter.h" />
+    <ClInclude Include="GoToTownRec.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="PointerLinkedList.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StuctureOfState.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ColorArray.cpp" />
+    <ClCompile Include="GoToTownIter.cpp" />
     <ClCompile Include="GoToTownRec.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Main.cpp" />

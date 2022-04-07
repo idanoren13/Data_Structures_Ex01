@@ -1,19 +1,15 @@
 TODO:
-	- iterative stack funcion
+	v iterative stack funcion
 	- destructors for all classes
 	- user input implementation
 	- return accessible group
+	-reset state iterator
 
-	- cry
-	- eat ice cream
+	v cry
+	v eat ice cream
 	- cry again
 	- beer/ wine / any alcohol for raz
 
-Raz:
-Idan:
-
-Status:
+-Ask Dvir: item type can be struct?
 
 
-
-	Q: we can assume max numbers of citys? - for the linkedList
