@@ -1,15 +1,11 @@
 TODO:
-	v iterative stack funcion
-	- destructors for all classes
 	- user input implementation
-	- return accessible group
-	-reset state iterator
 
 	v cry
 	v eat ice cream
 	- cry again
 	- beer/ wine / any alcohol for raz
 
--Ask Dvir: item type can be struct?
+
 
 

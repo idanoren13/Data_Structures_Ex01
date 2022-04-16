@@ -20,5 +20,8 @@ public:
 	void PrintList();
 
 
-	
+	~LinkedList()
+	{
+		delete[] list;
+	}
 };

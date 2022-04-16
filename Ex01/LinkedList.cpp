@@ -37,7 +37,7 @@ void LinkedList::PrintList()
 	while (i < headFree)
 	{
 		std::cout << list[i].data <<' ';
-		//printf("%d", list[i].data);
 		i++;
 	}
 }
+

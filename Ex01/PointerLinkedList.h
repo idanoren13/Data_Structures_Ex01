@@ -15,6 +15,7 @@ class PointerLinkedList
 public:
 	Node* Head = nullptr;
 	Node* Tail = nullptr;
+	~PointerLinkedList();
 	void insertToTail(int data);
 	/*
 	*	TODO: add iterator, add get iterator data

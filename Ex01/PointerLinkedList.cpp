@@ -1,6 +1,19 @@
 #include "PointerLinkedList.h"
 
-void PointerLinkedList::insertToTail (int data) 
+PointerLinkedList::~PointerLinkedList()
+{
+	Node* temp;
+	beginIterator();
+	while (iter.iter->next != nullptr) 
+	{
+		temp = iter.iter;
+		iter.advanceIterator();
+		delete temp;
+	}
+	delete iter.iter;
+}
+
+void PointerLinkedList::insertToTail (int data)
 {
 	Node* newNode = new Node(data, nullptr);
 	if (Head == nullptr) 
